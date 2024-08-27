@@ -8,8 +8,7 @@ class Solution {
             }else if(!signs[i]){
                 answer -= absolutes[i];
             }
-        }
-        
+        }        
         return answer;
     }
 }
