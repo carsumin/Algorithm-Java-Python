@@ -24,12 +24,14 @@ public class Main{
         int M = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine(), " ");
         
+        //StringBuilder로 출력
+        StringBuilder sb = new StringBuilder();
+        
         for(int i=0; i<M; i++){
             int result = binarySearch(Integer.parseInt(st.nextToken()));
-            if(result != -1) System.out.print(1 + " ");
-            else System.out.print(0 + " ");
-                                      
+            sb.append(result).append(" ");
         }
+        System.out.println(sb.toString().trim());
     }
     
     //이진탐색
@@ -40,10 +42,10 @@ public class Main{
         
         while(left <= right){
             mid = (left+right)/2;
-            if(arr[mid] < target) left = mid+1;
-            else if(arr[mid] > target) right = mid-1;
-            else return mid;
+            if(arr[mid] == target) return 1; //값이 있음
+            else if(arr[mid] < target) left = mid + 1;
+            else right = mid - 1;
         }
-        return -1;
+        return 0; //값이 없음
     }
 }
